@@ -19,15 +19,16 @@ public class UI_JoyStick : MonoBehaviour
     #endregion
     #region slider
     public Slider SliderInst;
-    public int AngryIncrease = 10;
     public Image HightLight1;
     public Image HightLight2;
     public bool ShowFinalSkillBtn => (SliderInst.value >= 100);
 
-    public void OnModifyFSV()
+    public void OnModifyFSV(int value)
     {
         var angryValue = SliderInst.value;
-        SliderInst.value += AngryIncrease;
+        SliderInst.value += value;
+
+        
 
         if(SliderInst.value >= 100 && angryValue < 100)
         {
@@ -35,6 +36,21 @@ public class UI_JoyStick : MonoBehaviour
         }
         else if(SliderInst.value >= 200 && angryValue < 200)
         {
+            HightLight2.enabled = true;
+        }
+        else if(SliderInst.value >=100 && SliderInst.value <200)
+        {
+            HightLight1.enabled = true;
+            HightLight2.enabled = false;
+        }
+        else if(SliderInst.value < 100)
+        {
+            HightLight1.enabled = false;
+            HightLight2.enabled = false;
+        }
+        else if(SliderInst.value >= 200)
+        {
+            HightLight1.enabled = true;
             HightLight2.enabled = true;
         }
 
