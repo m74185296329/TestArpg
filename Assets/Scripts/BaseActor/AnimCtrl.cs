@@ -118,17 +118,18 @@ public class AnimCtrl : MonoBehaviour
         {
             IsReady = false;
 
-            
+
 
             //載入特效
 
             //特定攻擊播放特定特效
             //1001
             var path = SkillPrePath + (1000 + _CurAnimAttackIndex).ToString();
-            var SkillPrefab = GlobalHelper.InstantiateMyPrefab(path,transform.position + Vector3.up*1f,Quaternion.identity);
+            var SkillPrefab = GlobalHelper.InstantiateMyPrefab(path, transform.position + Vector3.up * 1f, Quaternion.identity);
 
             var SkillInfo = SkillPrefab.GetComponent<SEAction_SkillInfo>();
             SkillInfo.SetOwner(gameObject);
+
             _CurAnimAttackIndex++;
         }
 

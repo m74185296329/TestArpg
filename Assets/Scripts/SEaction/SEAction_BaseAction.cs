@@ -2,7 +2,9 @@ using UnityEngine;
 using AttTypeDefine;
 public class SEAction_BaseAction : MonoBehaviour
 {
+    [HideInInspector]
     public eTrigType TrigType;
+    [HideInInspector]
     public float Duration;
     float StarTime = 0f;
     bool IsTriggered = false;

@@ -29330,7 +29330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TrigType: 1
-  Duration: 0.2
+  Duration: 0
 --- !u!1 &1985817477992794
 GameObject:
   m_ObjectHideFlags: 0
