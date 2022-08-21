@@ -6,6 +6,8 @@ public class NpcActor : BasePlayer
 
     public UI_HUD NpcHUD;
 
+    public BasePlayer PlayerInst;
+
     NpcAICtrl AICtrl;
     protected override void Awake()
     {

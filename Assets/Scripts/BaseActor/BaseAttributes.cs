@@ -7,6 +7,13 @@ using com.dxz.config;
 public class BaseAttributes : MonoBehaviour
 {
 
+
+    private float speed;
+    public float Speed => (speed);
+
+    private float attackdis;
+    public float AttackDis => (attackdis);
+
     //hp,attack
     int[] attrs;
 
@@ -20,10 +27,6 @@ public class BaseAttributes : MonoBehaviour
         attrs = new int[(int)ePlayerAttr.eSize];
     }
 
-    private void Start()
-    {
-        
-    }
 
     //建立表格 done
 
@@ -43,6 +46,8 @@ public class BaseAttributes : MonoBehaviour
         this[ePlayerAttr.eMaxHP] = PlayerAttTpl.f_MAXHP;
         this[ePlayerAttr.eAttack] = PlayerAttTpl.f_Attack;
         this[ePlayerAttr.eHP] = PlayerAttTpl.f_HP;
+        speed = PlayerAttTpl.f_Speed;
+        attackdis = PlayerAttTpl.f_AttackDis;
     }
     public int this[ePlayerAttr att]
     {

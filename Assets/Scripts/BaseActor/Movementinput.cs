@@ -26,7 +26,6 @@ public class Movementinput : MonoBehaviour
     public Animator Anim;
     public CharacterController CharCtrl;
     public UI_JoyStick JoyStick;
-    public float MoveSpeed;
     float horizontal;
     float vertical;
     float speed;
@@ -86,7 +85,7 @@ public class Movementinput : MonoBehaviour
 
         transform.forward = dir;
 
-        CharCtrl.Move(MoveSpeed * Time.deltaTime * dir);
+        CharCtrl.Move(AnimCtrlInst.BaseAttr.Speed * Time.deltaTime * dir);
     }
 #endregion
 }

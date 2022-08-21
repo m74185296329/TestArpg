@@ -5,6 +5,9 @@ using AttTypeDefine;
 public class BasePlayer : MonoBehaviour
 {
 
+    private float playerraidus;
+    public float PlayerRadius => (playerraidus);
+
     private CharacterController characterCtrl;
 
     public CharacterController CharacCtrl => (characterCtrl);
@@ -45,6 +48,8 @@ public class BasePlayer : MonoBehaviour
     {
         _Anim = GetComponent<Animator>();
         _BaseAttr.InitPlayerAttr(this,PlayerName);
+
+        playerraidus = characterCtrl.radius * transform.localScale.x;
     }
 
     /*public void PlayAnim(string animName)
