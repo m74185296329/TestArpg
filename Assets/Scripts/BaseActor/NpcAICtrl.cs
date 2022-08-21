@@ -58,7 +58,10 @@ public class NpcAICtrl : MonoBehaviour
                                 walkbackStartTime = Time.time;
                                 break;
                             }
-
+                        case eStateID.eFlyAway:
+                            {
+                                break;
+                            }
                     }
                 }
             }
@@ -115,6 +118,10 @@ public class NpcAICtrl : MonoBehaviour
             transform.position += (-1f) * walkbackSpeed * Time.deltaTime * transform.forward;
         }
     }
+    #endregion
+
+    #region hit back
+
     #endregion
 
     public void OnStart(NpcActor NA)

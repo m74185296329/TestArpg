@@ -63,7 +63,7 @@ public class SEAction_BuffTakeDamage : SEAction_BaseAction
                     {
                         if (defencer.PlayerSide == ePlayerSide.eEnemy)
                         {
-
+                            ((NpcActor)defencer).SetAIState(eStateID.eFlyAway);
                         }
                         break;
                     }
