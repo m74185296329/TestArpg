@@ -16,7 +16,7 @@ public class AnimCtrl : BasePlayer
     FinalSkillBtn FinalSkillInst;
     public int TYPEID = 1000;
 
-    AnimatorManager AnimMgr;
+    
     int _CurAnimAttackIndex = 1;
     int MinAnimAttackIndex = 1;
     int MaxAnimAttackIndex = 3;
@@ -38,7 +38,7 @@ public class AnimCtrl : BasePlayer
     protected override void Awake()
     {
         base.Awake();
-        AnimMgr = gameObject.AddComponent<AnimatorManager>();
+
         EnemyList = new List<Transform>();
         
 

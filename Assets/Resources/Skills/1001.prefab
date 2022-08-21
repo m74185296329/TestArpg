@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6066356267924080351}
   - component: {fileID: 334265308493315457}
   - component: {fileID: 4119089254512458398}
-  - component: {fileID: 9045634944036299211}
   - component: {fileID: 3563877638255472750}
   - component: {fileID: 4611284885014605952}
   m_Layer: 0
@@ -70,20 +69,6 @@ MonoBehaviour:
   SocketName: Prop_03
   OffSet: {x: 0, y: 0, z: 0}
   OffRot: {x: 0, y: 0, z: 0}
---- !u!114 &9045634944036299211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1643127782151999954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2721cdad344d434fb71599f7c84ad2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TrigType: 0
-  Duration: 1
 --- !u!65 &3563877638255472750
 BoxCollider:
   m_ObjectHideFlags: 0

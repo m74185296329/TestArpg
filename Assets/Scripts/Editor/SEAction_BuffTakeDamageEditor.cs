@@ -9,7 +9,7 @@ public class SEAction_BuffTakeDamageEditor : SEAction_BaseActionEditor
 {
     private SEAction_BuffTakeDamage Owner;
 
-    string[] injureAnimNames = new string[] { "待機","追擊","攻擊","受傷","擊飛","死亡" };
+    string[] injureAnimNames = new string[] { "待機","追擊","攻擊","受傷","擊飛","死亡","嘲諷","後退" };
 
     private void Awake()
     {

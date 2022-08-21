@@ -33,6 +33,8 @@ namespace AttTypeDefine
         eGetHit = 3,
         eFlyAway = 4,//À»­¸
         eDie = 5,
+        eTaunting = 6,//¼J¿Ø
+        eWalkBack = 7,//«á°h
     }
 
     public enum ePlayerSide
