@@ -38,4 +38,6 @@ public class AnimatorManager : MonoBehaviour
     {
         SkillReadyInst();
     }
+
+    
 }

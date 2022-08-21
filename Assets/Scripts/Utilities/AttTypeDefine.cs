@@ -10,6 +10,36 @@ namespace AttTypeDefine
     {
         eEffectWorld,
         eEffectOwner,
+        eDamageOwner,
+    }
+
+
+
+    public enum ePlayerAttr
+    {
+        eNULL = -1,
+        eHP = 0,
+        eMaxHP = 1,
+        eAttack = 2,
+        eSize = 3,
+    }
+
+    public enum eStateID
+    {
+        eNULL = -1,
+        eIdle = 0,
+        eChase = 1,
+        eAttack = 2,
+        eGetHit = 3,
+        eFlyAway = 4,//À»­¸
+        eDie = 5,
+    }
+
+    public enum ePlayerSide
+    {
+        ePlayer,
+        eEnemy,
+        eNPC,
     }
     public enum eTrigType
     {

@@ -37,7 +37,7 @@ namespace com.dxz.config
 		{
 			get
 			{
-				if(_metaDefault==null || _metaDefault.IsDeleted) _metaDefault=BGRepo.I.GetMeta<BansheeGz.BGDatabase.BGMetaRow>(new BGId(4800665912612510763,12901591087468173988));
+				if(_metaDefault==null || _metaDefault.IsDeleted) _metaDefault=BGRepo.I.GetMeta<BansheeGz.BGDatabase.BGMetaRow>(new BGId(4804072661402498299,9070039680110677382));
 				return _metaDefault;
 			}
 		}
@@ -78,45 +78,12 @@ namespace com.dxz.config
 				_f_ModelPath[Index] = value;
 			}
 		}
-		public System.Int32 f_TypeID
-		{
-			get
-			{
-				return _f_TypeID[Index];
-			}
-			set
-			{
-				_f_TypeID[Index] = value;
-			}
-		}
-		public System.Int32 f_PlayerSide
-		{
-			get
-			{
-				return _f_PlayerSide[Index];
-			}
-			set
-			{
-				_f_PlayerSide[Index] = value;
-			}
-		}
-		public System.String f_AnimCtrlPath
-		{
-			get
-			{
-				return _f_AnimCtrlPath[Index];
-			}
-			set
-			{
-				_f_AnimCtrlPath[Index] = value;
-			}
-		}
 		private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77_f_name;
 		public static BansheeGz.BGDatabase.BGFieldEntityName _f_name
 		{
 			get
 			{
-				if(_ufle12jhs77_f_name==null || _ufle12jhs77_f_name.IsDeleted) _ufle12jhs77_f_name=(BansheeGz.BGDatabase.BGFieldEntityName) MetaDefault.GetField(new BGId(5555061724573650120,10675668574336968860));
+				if(_ufle12jhs77_f_name==null || _ufle12jhs77_f_name.IsDeleted) _ufle12jhs77_f_name=(BansheeGz.BGDatabase.BGFieldEntityName) MetaDefault.GetField(new BGId(4908071365945281149,16999867891563802294));
 				return _ufle12jhs77_f_name;
 			}
 		}
@@ -125,35 +92,8 @@ namespace com.dxz.config
 		{
 			get
 			{
-				if(_ufle12jhs77_f_ModelPath==null || _ufle12jhs77_f_ModelPath.IsDeleted) _ufle12jhs77_f_ModelPath=(BansheeGz.BGDatabase.BGFieldString) MetaDefault.GetField(new BGId(5344841359766171021,4401716020436622263));
+				if(_ufle12jhs77_f_ModelPath==null || _ufle12jhs77_f_ModelPath.IsDeleted) _ufle12jhs77_f_ModelPath=(BansheeGz.BGDatabase.BGFieldString) MetaDefault.GetField(new BGId(4679753256403019760,4456270821865003957));
 				return _ufle12jhs77_f_ModelPath;
-			}
-		}
-		private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_f_TypeID;
-		public static BansheeGz.BGDatabase.BGFieldInt _f_TypeID
-		{
-			get
-			{
-				if(_ufle12jhs77_f_TypeID==null || _ufle12jhs77_f_TypeID.IsDeleted) _ufle12jhs77_f_TypeID=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(4668756337813880954,143569509279615419));
-				return _ufle12jhs77_f_TypeID;
-			}
-		}
-		private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77_f_PlayerSide;
-		public static BansheeGz.BGDatabase.BGFieldInt _f_PlayerSide
-		{
-			get
-			{
-				if(_ufle12jhs77_f_PlayerSide==null || _ufle12jhs77_f_PlayerSide.IsDeleted) _ufle12jhs77_f_PlayerSide=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5669408389661859786,4669642778236099729));
-				return _ufle12jhs77_f_PlayerSide;
-			}
-		}
-		private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77_f_AnimCtrlPath;
-		public static BansheeGz.BGDatabase.BGFieldString _f_AnimCtrlPath
-		{
-			get
-			{
-				if(_ufle12jhs77_f_AnimCtrlPath==null || _ufle12jhs77_f_AnimCtrlPath.IsDeleted) _ufle12jhs77_f_AnimCtrlPath=(BansheeGz.BGDatabase.BGFieldString) MetaDefault.GetField(new BGId(4848443893344252322,403082602048322489));
-				return _ufle12jhs77_f_AnimCtrlPath;
 			}
 		}
 		private static readonly BGE_PlayerTemplate.Factory _factory0_PFS = new BGE_PlayerTemplate.Factory();
@@ -235,7 +175,7 @@ namespace com.dxz.config
 		{
 			get
 			{
-				if(_metaDefault==null || _metaDefault.IsDeleted) _metaDefault=BGRepo.I.GetMeta<BansheeGz.BGDatabase.BGMetaRow>(new BGId(5271656502563413628,12360748041247999411));
+				if(_metaDefault==null || _metaDefault.IsDeleted) _metaDefault=BGRepo.I.GetMeta<BansheeGz.BGDatabase.BGMetaRow>(new BGId(5659449348152244251,8647667149400694164));
 				return _metaDefault;
 			}
 		}
@@ -298,67 +238,12 @@ namespace com.dxz.config
 				_f_MAXHP[Index] = value;
 			}
 		}
-		public System.Single f_Speed
-		{
-			get
-			{
-				return _f_Speed[Index];
-			}
-			set
-			{
-				_f_Speed[Index] = value;
-			}
-		}
-		public System.Single f_AttackDis
-		{
-			get
-			{
-				return _f_AttackDis[Index];
-			}
-			set
-			{
-				_f_AttackDis[Index] = value;
-			}
-		}
-		public System.Single f_FinalSkillDis
-		{
-			get
-			{
-				return _f_FinalSkillDis[Index];
-			}
-			set
-			{
-				_f_FinalSkillDis[Index] = value;
-			}
-		}
-		public System.Collections.Generic.List<UnityEngine.Vector2> f_AnimPerArray
-		{
-			get
-			{
-				return _f_AnimPerArray[Index];
-			}
-			set
-			{
-				_f_AnimPerArray[Index] = value;
-			}
-		}
-		public System.Collections.Generic.List<UnityEngine.Vector2> f_AnimPerSkillArray
-		{
-			get
-			{
-				return _f_AnimPerSkillArray[Index];
-			}
-			set
-			{
-				_f_AnimPerSkillArray[Index] = value;
-			}
-		}
 		private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77_f_name;
 		public static BansheeGz.BGDatabase.BGFieldEntityName _f_name
 		{
 			get
 			{
-				if(_ufle12jhs77_f_name==null || _ufle12jhs77_f_name.IsDeleted) _ufle12jhs77_f_name=(BansheeGz.BGDatabase.BGFieldEntityName) MetaDefault.GetField(new BGId(5146581448472954327,10255661124394009013));
+				if(_ufle12jhs77_f_name==null || _ufle12jhs77_f_name.IsDeleted) _ufle12jhs77_f_name=(BansheeGz.BGDatabase.BGFieldEntityName) MetaDefault.GetField(new BGId(4902157435381073776,16892590568760668305));
 				return _ufle12jhs77_f_name;
 			}
 		}
@@ -367,7 +252,7 @@ namespace com.dxz.config
 		{
 			get
 			{
-				if(_ufle12jhs77_f_Attack==null || _ufle12jhs77_f_Attack.IsDeleted) _ufle12jhs77_f_Attack=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5470503183035219545,14644916978405794704));
+				if(_ufle12jhs77_f_Attack==null || _ufle12jhs77_f_Attack.IsDeleted) _ufle12jhs77_f_Attack=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5452420793651247992,11838837463659377809));
 				return _ufle12jhs77_f_Attack;
 			}
 		}
@@ -376,7 +261,7 @@ namespace com.dxz.config
 		{
 			get
 			{
-				if(_ufle12jhs77_f_HP==null || _ufle12jhs77_f_HP.IsDeleted) _ufle12jhs77_f_HP=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(4701389701986966800,15189976730249900423));
+				if(_ufle12jhs77_f_HP==null || _ufle12jhs77_f_HP.IsDeleted) _ufle12jhs77_f_HP=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5321008938629520910,4186046613848773530));
 				return _ufle12jhs77_f_HP;
 			}
 		}
@@ -385,53 +270,8 @@ namespace com.dxz.config
 		{
 			get
 			{
-				if(_ufle12jhs77_f_MAXHP==null || _ufle12jhs77_f_MAXHP.IsDeleted) _ufle12jhs77_f_MAXHP=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(4652951554992133600,13291954150500539037));
+				if(_ufle12jhs77_f_MAXHP==null || _ufle12jhs77_f_MAXHP.IsDeleted) _ufle12jhs77_f_MAXHP=(BansheeGz.BGDatabase.BGFieldInt) MetaDefault.GetField(new BGId(5232586627472829592,7700795507944059061));
 				return _ufle12jhs77_f_MAXHP;
-			}
-		}
-		private static BansheeGz.BGDatabase.BGFieldFloat _ufle12jhs77_f_Speed;
-		public static BansheeGz.BGDatabase.BGFieldFloat _f_Speed
-		{
-			get
-			{
-				if(_ufle12jhs77_f_Speed==null || _ufle12jhs77_f_Speed.IsDeleted) _ufle12jhs77_f_Speed=(BansheeGz.BGDatabase.BGFieldFloat) MetaDefault.GetField(new BGId(4968534119300957770,4328313081753902512));
-				return _ufle12jhs77_f_Speed;
-			}
-		}
-		private static BansheeGz.BGDatabase.BGFieldFloat _ufle12jhs77_f_AttackDis;
-		public static BansheeGz.BGDatabase.BGFieldFloat _f_AttackDis
-		{
-			get
-			{
-				if(_ufle12jhs77_f_AttackDis==null || _ufle12jhs77_f_AttackDis.IsDeleted) _ufle12jhs77_f_AttackDis=(BansheeGz.BGDatabase.BGFieldFloat) MetaDefault.GetField(new BGId(5261131599720559700,10360367657616889734));
-				return _ufle12jhs77_f_AttackDis;
-			}
-		}
-		private static BansheeGz.BGDatabase.BGFieldFloat _ufle12jhs77_f_FinalSkillDis;
-		public static BansheeGz.BGDatabase.BGFieldFloat _f_FinalSkillDis
-		{
-			get
-			{
-				if(_ufle12jhs77_f_FinalSkillDis==null || _ufle12jhs77_f_FinalSkillDis.IsDeleted) _ufle12jhs77_f_FinalSkillDis=(BansheeGz.BGDatabase.BGFieldFloat) MetaDefault.GetField(new BGId(4840346143938840298,7829745129561242281));
-				return _ufle12jhs77_f_FinalSkillDis;
-			}
-		}
-		private static BansheeGz.BGDatabase.BGFieldListVector2 _ufle12jhs77_f_AnimPerArray;
-		public static BansheeGz.BGDatabase.BGFieldListVector2 _f_AnimPerArray
-		{
-			get
-			{
-				if(_ufle12jhs77_f_AnimPerArray==null || _ufle12jhs77_f_AnimPerArray.IsDeleted) _ufle12jhs77_f_AnimPerArray=(BansheeGz.BGDatabase.BGFieldListVector2) MetaDefault.GetField(new BGId(5003569505521262406,544511406612188843));
-				return _ufle12jhs77_f_AnimPerArray;
-			}
-		}
-		private static BansheeGz.BGDatabase.BGFieldListVector2 _ufle12jhs77_f_AnimPerSkillArray;
-		public static BansheeGz.BGDatabase.BGFieldListVector2 _f_AnimPerSkillArray
-		{
-			get
-			{
-				if(_ufle12jhs77_f_AnimPerSkillArray==null || _ufle12jhs77_f_AnimPerSkillArray.IsDeleted) _ufle12jhs77_f_AnimPerSkillArray=(BansheeGz.BGDatabase.BGFieldListVector2) MetaDefault.GetField(new BGId(5344287724654472746,10984566536519911093));
-				return _ufle12jhs77_f_AnimPerSkillArray;
 			}
 		}
 		private static readonly BGE_PlayerTemplate.Factory _factory0_PFS = new BGE_PlayerTemplate.Factory();

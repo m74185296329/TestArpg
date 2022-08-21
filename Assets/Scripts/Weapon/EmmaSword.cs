@@ -73,7 +73,7 @@ public class EmmaSword : MonoBehaviour
             enemyActor.GetHit();
 
             //increase player slider
-            AnimCtrlInst.OnModifyFSV(50);
+            //AnimCtrlInst.OnModifyFSV(50);
         }
 
         

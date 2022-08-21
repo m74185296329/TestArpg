@@ -11,14 +11,14 @@ public class SEAction_BaseAction : MonoBehaviour
     void Start()
     {
 
-        if(TrigType == eTrigType.eAuto)
+        if (TrigType == eTrigType.eAuto)
         {
             StarTime = Time.time;
             IsTriggered = true;
         }
     }
 
-    public void OnStart ()
+    public virtual void OnStart()
     {
         if (TrigType == eTrigType.eCondition)
         {
@@ -29,7 +29,7 @@ public class SEAction_BaseAction : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
 
         if (!IsTriggered)
@@ -47,4 +47,10 @@ public class SEAction_BaseAction : MonoBehaviour
 
     }
 
+
+    public SEAction_DataStore GetDataStore()
+    {
+        var ds = gameObject.GetComponent<SEAction_DataStore>();
+        return ds;
+    }
 }

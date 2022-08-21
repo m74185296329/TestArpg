@@ -19,6 +19,7 @@ public class SEAction_SkillInfo : SEAction_BaseAction
         for(var i = 0; i < ses.Length; i++)
         {
             ses[i].Owner = Owner;
+            ses[i].SkillInfo = this;
         }
 
     }

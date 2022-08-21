@@ -5,16 +5,18 @@ using UnityEngine.EventSystems;
 using AttTypeDefine;
 using DG.Tweening;
 
-public class AnimCtrl : MonoBehaviour
+public class AnimCtrl : BasePlayer
 {
     #region Sys funcs
-    public Vector2[] AnimPerArray;
-    public Vector2[] AnimSkillPerArray;
+
+    List<Transform> EnemyList;
+
     public UI_JoyStick JoyStickInst;
 
     FinalSkillBtn FinalSkillInst;
+    public int TYPEID = 1000;
+
     AnimatorManager AnimMgr;
-    Animator _Anim;
     int _CurAnimAttackIndex = 1;
     int MinAnimAttackIndex = 1;
     int MaxAnimAttackIndex = 3;
@@ -26,36 +28,39 @@ public class AnimCtrl : MonoBehaviour
 
     Camera Cam;
 
-    EmmaSword WeaponInst;
+    //EmmaSword WeaponInst;
 
 
     bool _IsPlaying;
     public bool IsPlaying =>(_IsPlaying);
 
     eSkillType SkillType;
-    public Animator Anim => (_Anim);
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         AnimMgr = gameObject.AddComponent<AnimatorManager>();
-
+        EnemyList = new List<Transform>();
         
 
     }
-    private void Start()
+    protected override void Start()
     {
-        _Anim = GetComponent<Animator>();
+        base.Start();
+
+        TypeId = TYPEID;
+
         AnimMgr.OnStart(this);
 
         FinalSkillInst = JoyStickInst.FinalSkillBtnInst;
 
         Cam = Camera.main;
 
-        var weapongo = GlobalHelper.FindGOByName(gameObject, "greatesword");
-        if (null != weapongo)
-        {
-            WeaponInst = weapongo.GetComponent<EmmaSword>();
-            WeaponInst.OnStart(this);
-        }
+        //var weapongo = GlobalHelper.FindGOByName(gameObject, "greatesword");
+        //if (null != weapongo)
+        //{
+        //    WeaponInst = weapongo.GetComponent<EmmaSword>();
+        //    WeaponInst.OnStart(this);
+        //}
 
         JoyStickInst.FinalSkillBtnInst.PressDown.AddListener((a) => OnFinalSkillBegin(a));
         JoyStickInst.FinalSkillBtnInst.OnDragEvent.AddListener((a) => OnFinalSkillDrag(a));
@@ -67,6 +72,27 @@ public class AnimCtrl : MonoBehaviour
     private void Update()
     {
         UpdateSkillInput();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        var bp = other.gameObject.GetComponent<BasePlayer>();
+        if (null == bp || bp.PlayerSide == ePlayerSide.ePlayer)
+            return;
+
+
+        EnemyList.Add(bp.transform);
+        
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        var bp = other.gameObject.GetComponent<BasePlayer>();
+        if (null == bp)
+            return;
+
+        EnemyList.Remove(bp.transform);
+        
     }
     #endregion
 
@@ -118,6 +144,15 @@ public class AnimCtrl : MonoBehaviour
         {
             IsReady = false;
 
+            //面朝敵人
+            var Target = GlobalHelper.GetNearestTrans(EnemyList,transform);
+            if(null != Target)
+            {
+                //var toward = (Target.position - transform.position).normalized;
+                //toward.y = 0f;
+                transform.DOLookAt(Target.position, 0.1f);
+            }
+            //1 : 拿到距離最近的敵人
 
 
             //載入特效
@@ -140,25 +175,25 @@ public class AnimCtrl : MonoBehaviour
     void CastSkillEnd1()
     {
 
-        Vector2 Item = Vector2.zero;
+        //Vector2 Item = Vector2.zero;
 
-        if(SkillType == eSkillType.eAttack)
-        {
-            if (_CurAnimAttackIndex <= 1)
-            {
-                Debug.LogError("Logic Error");
-                return;
-            }
-            Item = AnimPerArray[_CurAnimAttackIndex - 2];
+        //if(SkillType == eSkillType.eAttack)
+        //{
+        //    if (_CurAnimAttackIndex <= 1)
+        //    {
+        //        Debug.LogError("Logic Error");
+        //        return;
+        //    }
+        //    Item = AnimPerArray[_CurAnimAttackIndex - 2];
 
             
-        }
-           else if(SkillType == eSkillType.eSkill1)
-        {
-            Item = AnimSkillPerArray[(int)(SkillType - 1)];
-        }
+        //}
+        //   else if(SkillType == eSkillType.eSkill1)
+        //{
+        //    Item = AnimSkillPerArray[(int)(SkillType - 1)];
+        //}
 
-        WeaponInst.OnStartWeaponCtrl(Anim, Item.x, Item.y);
+        //WeaponInst.OnStartWeaponCtrl(Anim, Item.x, Item.y);
     }
 
     void CastSkillEnd()
@@ -268,4 +303,15 @@ public class AnimCtrl : MonoBehaviour
     }
     #endregion
 
+    #region Enemy Die
+    public void EnemyDie(Transform enemy)
+    {
+        if (EnemyList.Contains(enemy))
+        {
+            EnemyList.Remove(enemy);
+        }
+    }
+
+
+    #endregion
 }
