@@ -8,8 +8,8 @@ using AttTypeDefine;
 public class CommonJoyBtn : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
     #region sys
-
-    void Awake()
+    
+    public virtual void Awake()
     {
         PressDown = new GameBtnEvent();
         OnDragEvent = new GameBtnEvent();

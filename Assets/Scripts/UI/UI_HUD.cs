@@ -1,7 +1,7 @@
 
 using UnityEngine;
 using UnityEngine.UI;
-public class UI_HUD : MonoBehaviour
+public class UI_HUD : UIBase
 {
 
     public Slider HPSlider;

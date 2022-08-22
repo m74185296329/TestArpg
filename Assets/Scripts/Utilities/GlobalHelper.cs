@@ -134,4 +134,12 @@ public class GlobalHelper
         data[high] = tmp;
     }
     #endregion
+    public static void TransLookAt2D(Transform trans,Transform targetTrans) 
+    {
+        trans.LookAt(targetTrans);
+        var tmp = trans.transform.forward;
+        tmp.y = 0f;
+        trans.transform.forward = tmp;
+    }
+
 }

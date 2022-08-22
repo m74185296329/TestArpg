@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_JoyStick : MonoBehaviour
+public class UI_JoyStick : UIBase
 {
 
     #region Sys
+    public void OnStart()
+    {
+        FinalSkillBtnInst.Init();
+    }
+
     private void Start()
     {
         FinalSkillBtnInst.SetFinalSkillState(ShowFinalSkillBtn);

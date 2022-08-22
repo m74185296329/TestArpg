@@ -2,8 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using AttTypeDefine;
+using com.dxz.config;
+
 public class BasePlayer : MonoBehaviour
 {
+
+    protected BGE_PlayerTemplate PlayerTpl;
+    protected BGE_PlayerAttTemplate PlayerAttTpl;
 
     private float playerraidus;
     public float PlayerRadius => (playerraidus);
@@ -18,6 +23,7 @@ public class BasePlayer : MonoBehaviour
 
     public float PlayerHeight => (characterCtrl.height);
 
+    [HideInInspector]
     public string PlayerName;
     //hp,attack
 
@@ -39,7 +45,8 @@ public class BasePlayer : MonoBehaviour
 
     public int TypeID => (TypeId);
 
-
+    protected string roleId;
+    public string RoleID => (roleId);
     protected virtual void Awake()
     {
         _BaseAttr = gameObject.AddComponent<BaseAttributes>();
@@ -47,12 +54,14 @@ public class BasePlayer : MonoBehaviour
         characterCtrl = GetComponent<CharacterController>();
 
         AnimMgr = gameObject.AddComponent<AnimatorManager>();
+
+        _Anim = GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        _Anim = GetComponent<Animator>();
+        
         _BaseAttr.InitPlayerAttr(this,PlayerName);
 
         playerraidus = characterCtrl.radius * transform.localScale.x;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AttTypeDefine;
 
 public class FinalSkillBtn : CommonJoyBtn
 {
@@ -8,6 +9,17 @@ public class FinalSkillBtn : CommonJoyBtn
     public Color DisabledColor;
     public CanvasGroup CanvasGpInst;
 
+    public override void Awake()
+    {
+        
+    }
+
+    public void Init()
+    {
+        PressDown = new GameBtnEvent();
+        OnDragEvent = new GameBtnEvent();
+        PressUp = new GameBtnEvent();
+    }
 
     public void SetFinalSkillState (bool on)
     {

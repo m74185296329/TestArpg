@@ -6,15 +6,25 @@ public class Movementinput : MonoBehaviour
 {
     #region System Function
     // Start is called before the first frame update
-    void Start()
+    public void OnStart(AnimCtrl ac)
     {
         Cam = Camera.main;
-        AnimCtrlInst = gameObject.GetComponent<AnimCtrl>();
+        AnimCtrlInst = ac;
+
+        CharCtrl = ac.CharacCtrl;
+
+        JoyStick = ac.JoyStickInst;
+
+        Anim = ac.Anim;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (null == AnimCtrlInst)
+            return;
+
         if (CanMove())
         {
             SetPlayerAnimMoveParn();
@@ -23,9 +33,9 @@ public class Movementinput : MonoBehaviour
     #endregion
     #region Player Animation Controller
     private AnimCtrl AnimCtrlInst;
-    public Animator Anim;
-    public CharacterController CharCtrl;
-    public UI_JoyStick JoyStick;
+    Animator Anim;
+    CharacterController CharCtrl;
+    UI_JoyStick JoyStick;
     float horizontal;
     float vertical;
     float speed;

@@ -7,6 +7,8 @@ public class NpcAICtrl : MonoBehaviour
 {
 
     eStateID npcState = eStateID.eNULL;
+
+    string SkillPrePath = "Skills/";
     public eStateID NpcState
     {
         get
@@ -60,6 +62,30 @@ public class NpcAICtrl : MonoBehaviour
                             }
                         case eStateID.eFlyAway:
                             {
+                                Owner.Anim.SetTrigger("Base Layer.HitBack");
+
+                                //位移
+                                var finalPos = Owner.transform.position + Quaternion.AngleAxis(180f, Vector3.up) * Owner.transform.forward * hitBackDis;
+
+                                GlobalHelper.TransLookAt2D(Owner.transform, PlayerInst.transform);
+
+                                /*Owner.transform.LookAt(PlayerInst.transform);
+                                var tmp = Owner.transform.forward;
+                                tmp.y = 0f;
+                                Owner.transform.forward = tmp;*/
+                                Owner.transform.DOMove(finalPos,hitBackDuration).OnComplete(()=> {
+                                    NpcState = eStateID.eChase;
+                                    Owner.Anim.SetTrigger("Base Layer.Run");
+                                });
+                                break;
+                            }
+                        case eStateID.eDie:
+                            {
+                                //關閉hitbox
+                                Owner.Anim.SetTrigger("Base Layer.Die");
+                                //撥放完死亡動畫,下沉
+                                Owner.CharacCtrl.enabled = false;
+                                //下沉到指定高度 destroy
                                 break;
                             }
                     }
@@ -70,7 +96,17 @@ public class NpcAICtrl : MonoBehaviour
     }
     void CastSkillBegin()
     {
+        var Target = PlayerInst.transform;
+        if(null != Target)
+        {
+            transform.DOLookAt(Target.position, 0.1f);
+        }
 
+        var path = SkillPrePath + "2001";
+        var SkillPrefab = GlobalHelper.InstantiateMyPrefab(path, transform.position + Vector3.up * 1f, Quaternion.identity);
+
+        var SkillInfo = SkillPrefab.GetComponent<SEAction_SkillInfo>();
+        SkillInfo.SetOwner(gameObject);
     }
 
     void CastSkillEnd()
@@ -121,7 +157,8 @@ public class NpcAICtrl : MonoBehaviour
     #endregion
 
     #region hit back
-
+    public float hitBackDuration = 0.25f;
+    public float hitBackDis = 2.5f;
     #endregion
 
     public void OnStart(NpcActor NA)
@@ -276,6 +313,13 @@ public class NpcAICtrl : MonoBehaviour
             case eStateID.eTaunting:
                 {
                     NpcState = eStateID.eChase;
+                    break;
+                }
+            case eStateID.eDie:
+                {
+                    Owner.transform.DOMoveY(-0.5f,6f).OnComplete(()=> {
+                        Destroy(gameObject);
+                        });
                     break;
                 }
         }
