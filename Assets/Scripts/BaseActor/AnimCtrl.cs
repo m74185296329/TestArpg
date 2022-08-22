@@ -367,49 +367,51 @@ public class AnimCtrl : BasePlayer
     #region Create Palyer Actor
     public static AnimCtrl CreatePlayerActor(string RoleName,BirthPoint bp)
     {
-        BGE_PlayerTemplate PlayerTpl = GlobalHelper.GetTheEntityByName<BGE_PlayerTemplate>("PlayerTemplate", RoleName);
+        #region 参
+        //BGE_PlayerTemplate PlayerTpl = GlobalHelper.GetTheEntityByName<BGE_PlayerTemplate>("PlayerTemplate", RoleName);
 
-        BGE_PlayerAttTemplate PlayerAttTpl = GlobalHelper.GetTheEntityByName<BGE_PlayerAttTemplate>("PlayerAttTemplate", RoleName);
-        //更家
-        var tmp = Resources.Load(PlayerTpl.f_ModelPath);
+        //BGE_PlayerAttTemplate PlayerAttTpl = GlobalHelper.GetTheEntityByName<BGE_PlayerAttTemplate>("PlayerAttTemplate", RoleName);
+        ////更家
+        //var tmp = Resources.Load(PlayerTpl.f_ModelPath);
 
-        var actor = Instantiate(tmp,bp.transform.position,bp.transform.rotation)as GameObject;
+        //var actor = Instantiate(tmp,bp.transform.position,bp.transform.rotation)as GameObject;
 
-        actor.name = tmp.name;
-        //更竲セ
-        var ret = actor.AddComponent<AnimCtrl>();
+        //actor.name = tmp.name;
+        ////更竲セ
+        //var ret = actor.AddComponent<AnimCtrl>();
 
-        //﹍て┮Τ计沮
+        ////﹍て┮Τ计沮
 
 
-        ret.PlayerName = RoleName;
+        //ret.PlayerName = RoleName;
 
-        ret.TypeId = PlayerTpl.f_TypeID;
+        //ret.TypeId = PlayerTpl.f_TypeID;
 
-        ret.FinalSkillDis = PlayerAttTpl.f_FinalSkillDis;
+        //ret.PlayerTpl = PlayerTpl;
 
-        ret.AnimPerArray = PlayerAttTpl.f_AnimPerArray.ToArray();
+        //ret.PlayerAttTpl = PlayerAttTpl;
 
-        ret.AnimSkillPerArray = PlayerAttTpl.f_AnimPerSkillArray.ToArray();
+        //ret.PlayerSide = (ePlayerSide)PlayerTpl.f_PlayerSide;
 
-        
+        //ret.AnimPerArray = PlayerAttTpl.f_AnimPerArray.ToArray();
+
+        //ret.AnimSkillPerArray = PlayerAttTpl.f_AnimPerSkillArray.ToArray();
+
+        //ret.transform.localScale = Vector3.one * bp.Scale;
+        #endregion
+        var ret = CreateBaseActor<AnimCtrl>(RoleName, bp);
+
+        ret.FinalSkillDis = ret.PlayerAttTpl.f_FinalSkillDis;
         //更JoyStick
         ret.JoyStickInst = UIManager.Inst.OpenUI<UI_JoyStick>();
 
         ret.JoyStickInst.OnStart();
-
-        ret.PlayerTpl = PlayerTpl;
-
-        ret.PlayerAttTpl = PlayerAttTpl;
-
-        ret.PlayerSide = (ePlayerSide)PlayerTpl.f_PlayerSide;
 
         //睰movement input
 
         var input = ret.gameObject.AddComponent<Movementinput>();
         input.OnStart(ret);
 
-        ret.transform.localScale = Vector3.one * bp.Scale;
         //AnimCtrl
         return ret;
     }
