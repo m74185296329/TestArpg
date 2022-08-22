@@ -15,7 +15,6 @@ public class AnimCtrl : BasePlayer
     public UI_JoyStick JoyStickInst;
 
     FinalSkillBtn FinalSkillInst;
-    public int TYPEID = 1000;
 
 
     int _CurAnimAttackIndex = 1;
@@ -40,6 +39,9 @@ public class AnimCtrl : BasePlayer
  
 
     SEAction_SkillInfo SkillInfo;
+
+    Movementinput MoveInput;
+
     protected override void Awake()
     {
         base.Awake();
@@ -209,6 +211,7 @@ public class AnimCtrl : BasePlayer
         {
 
         }
+        else
         {
             _IsPlaying = false;
         }
@@ -356,9 +359,15 @@ public class AnimCtrl : BasePlayer
             case eStateID.eGetHit:
                 {
                     _IsPlaying = false;
+                    IsGetHit = false;
                     break;
                 }
-
+            case eStateID.eDie:
+                {
+                    //todo
+                    //UIManager.Inst.OpenUI<UI_GameOver>();
+                    break;
+                }
         }
     }
     #endregion
@@ -409,12 +418,36 @@ public class AnimCtrl : BasePlayer
 
         //添加movement input
 
-        var input = ret.gameObject.AddComponent<Movementinput>();
-        input.OnStart(ret);
+        ret.MoveInput = ret.gameObject.AddComponent<Movementinput>();
+        ret.MoveInput.OnStart(ret);
+        //input.OnStart(ret);
 
         //返回AnimCtrl
         return ret;
     }
     #endregion
 
+    #region Player Death
+
+    public void SetPlayerGameOver(bool iswin)
+    {
+        //close UIJoyStick
+        JoyStickInst.gameObject.SetActive(false);
+        //Play 死亡動畫
+        if (iswin)
+        {
+            Anim.SetTrigger("Base Layer.Victory");
+        }
+        else
+        {
+            Anim.SetTrigger("Base Layer.Die");
+        }
+
+        UIManager.Inst.OpenUI<UI_GameOver>();
+        //close collider
+        CharacCtrl.enabled = false;
+        MoveInput.IsActive = false;
+
+    }
+    #endregion
 }

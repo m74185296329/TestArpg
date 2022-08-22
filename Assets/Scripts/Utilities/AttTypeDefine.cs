@@ -5,7 +5,14 @@ namespace AttTypeDefine
 {
     public delegate void NotifySkill();
 
-
+    public enum eGameProcedure
+    {
+        eNULL,
+        eFightStart,
+        //eFighting,
+        eFightOver,
+        eRestart,
+    }
     public enum eSkillBindType
     {
         eEffectWorld,
@@ -35,6 +42,7 @@ namespace AttTypeDefine
         eDie = 5,
         eTaunting = 6,//¼J¿Ø
         eWalkBack = 7,//«á°h
+        eVictory = 8,
     }
 
     public enum ePlayerSide

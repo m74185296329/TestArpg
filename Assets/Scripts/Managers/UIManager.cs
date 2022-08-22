@@ -12,19 +12,23 @@ public class UIManager : MonoBehaviour
         inst = this;
     }
 
-    public T OpenUI<T>() where T : UIBase
+    public T OpenUI<T>(bool forceCreate = false) where T : UIBase
     {
-        for(var i = 0; i < transform.childCount; i++)
+        if (!forceCreate)
         {
-            var item = transform.GetChild(i);
-
-            if(item.name == typeof(T).Name)
+            for (var i = 0; i < transform.childCount; i++)
             {
-                item.gameObject.SetActive(true);
-                return item.GetComponent<T>();
-            }
+                var item = transform.GetChild(i);
 
+                if (item.name == typeof(T).Name)
+                {
+                    item.gameObject.SetActive(true);
+                    return item.GetComponent<T>();
+                }
+
+            }
         }
+        
 
         //¥[¸ü¤@¤UUI
         var tmp = Resources.Load("UI/" + typeof(T).Name);
@@ -49,4 +53,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void ClearAllUI()
+    {
+        while (transform.childCount > 0)
+        {
+            var item = transform.GetChild(0);
+            Destroy(item.gameObject);
+        }
+    }
 }

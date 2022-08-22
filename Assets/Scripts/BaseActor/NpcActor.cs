@@ -70,8 +70,18 @@ public class NpcActor : BasePlayer
     {
         var ret = CreateBaseActor<NpcActor>(RoleName, bp);
         //load hud
-        ret.NpcHUD = UIManager.Inst.OpenUI<UI_HUD>();
+        ret.NpcHUD = UIManager.Inst.OpenUI<UI_HUD>(true);
         return ret;
     }
+    #endregion
+
+    #region Self Destroy
+
+    public static void DestroySelf(NpcActor actor)
+    {
+        Destroy(actor.NpcHUD.gameObject);
+        Destroy(actor.gameObject);
+    }
+
     #endregion
 }

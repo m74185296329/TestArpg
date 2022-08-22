@@ -88,6 +88,11 @@ public class NpcAICtrl : MonoBehaviour
                                 //下沉到指定高度 destroy
                                 break;
                             }
+                        case eStateID.eVictory:
+                            {
+                                Owner.Anim.SetTrigger("Base Layer.Victory");
+                                break;
+                            }
                     }
                 }
             }
@@ -111,7 +116,7 @@ public class NpcAICtrl : MonoBehaviour
 
     void CastSkillEnd()
     {
-        if (NpcState == eStateID.eGetHit)
+        if (NpcState == eStateID.eGetHit || NpcState == eStateID.eVictory || NpcState == eStateID.eDie)
             return;
 
         NpcState = GetCurNpcAIState(eStateID.eAttack);
@@ -318,7 +323,11 @@ public class NpcAICtrl : MonoBehaviour
             case eStateID.eDie:
                 {
                     Owner.transform.DOMoveY(-0.5f,6f).OnComplete(()=> {
-                        Destroy(gameObject);
+                        NpcActor.DestroySelf(Owner);
+                        if(FightManager.Inst.LeftEnemyCount == 0)
+                        {                            
+                                FightManager.Inst.GameProcedure = eGameProcedure.eFightOver;                           
+                        }
                         });
                     break;
                 }
